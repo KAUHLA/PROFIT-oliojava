@@ -5,8 +5,8 @@ import fi.jyu.mit.graphics.EasyWindow;
 /**
  * Ohjelma piirt‰‰ viisi porrasta alkaen origosta p‰‰ttyen
  * pisteesen (5,5)
- * @author // T‰ydenn‰
- * @version // T‰ydenn‰
+ * @author // Lari-Mikko Kauhanen
+ * @version // 01-00
  */
 public class Portaat {
 
@@ -34,6 +34,44 @@ public class Portaat {
     	window.addLine(x, y, x+1, y);
     	window.addLine(x+1, y, x+1, y-1);
     }
+    
+    public static void piirraPortaat(EasyWindow window,double x,double y,int lkm,String suunta){
+    	for (int i = 0; i < lkm; i++){
+    		//window.addLine(x, y, x, y+1);
+    		//window.addLine(x, y+1, x+1, y+1);
+    		if (suunta == "ylos"){
+    			porrasYlos(window,x,y);
+        		x++;
+        		y++;
+    		}
+    		else{
+    			porrasAlas(window,x,y);
+    			x++;
+            	y--;
+    		}
+    	}
+    }
+    	
+    public static void piirraPyramidi(EasyWindow window,double x,double y,int lkm){
+        //for (int i = 0; i < lkm; i++){
+        	//window.addLine(x, y, x, y+1);
+        	//window.addLine(x, y+1, x+1, y+1);
+        	//porrasYlos(window,x,y);
+        	//x++;
+        	//y++;
+        //}
+        	
+        //for (int i = 0; i < lkm; i++){
+        	//window.addLine(x, y, x+1, y);
+        	//window.addLine(x+1, y, x+1, y-1);
+        	//x++;
+        	//y--;
+    	
+    	piirraPortaat(window,x,y,lkm,"ylos");
+    	x += lkm;
+    	y += lkm;
+    	piirraPortaat(window,x,y,lkm,"alas");
+    }
     /**
      * @param args ei k‰ytˆss‰
      */
@@ -45,12 +83,15 @@ public class Portaat {
         porrasYlos(window,1,1);
         
         //Sitten alas
-        porrasAlas(window,5,5);
-        porrasAlas(window,6,4);
+        porrasAlas(window,2,2);
+        porrasAlas(window,3,1);
         
         //Ja lopulta metodi, joka piirt‰‰ halutun m‰‰r‰n portaita alkaen tietyst‰ koordinaatista
-        //piirraPortaat(window,3,3,7);
+        piirraPortaat(window,3,3,7,"ylos");
         // eli piirraPortaat(ikkuna johon piirret‰‰n, x-koord, y-koord, montako porrasta
+        
+        piirraPyramidi(window,1,10,7);
+        
         window.showWindow();
     }
 }
