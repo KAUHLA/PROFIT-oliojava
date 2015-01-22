@@ -1,4 +1,5 @@
-package java1;
+package kauhanen;
+
 import fi.jyu.mit.graphics.EasyWindow;
 
 /**
