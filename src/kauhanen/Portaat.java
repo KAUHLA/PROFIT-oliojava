@@ -35,7 +35,7 @@ public class Portaat {
     	window.addLine(x+1, y, x+1, y-1);
     }
     
-    public static void piirraPortaat(EasyWindow window,double x,double y,int lkm,String suunta){
+    public static void piirraPorras(EasyWindow window,double x,double y,int lkm,String suunta){
     	for (int i = 0; i < lkm; i++){
     		//window.addLine(x, y, x, y+1);
     		//window.addLine(x, y+1, x+1, y+1);
@@ -52,7 +52,7 @@ public class Portaat {
     	}
     }
     	
-    public static void piirraPyramidi(EasyWindow window,double x,double y,int lkm){
+    public static void piirraPortaat(EasyWindow window,double x,double y,int lkm){
         //for (int i = 0; i < lkm; i++){
         	//window.addLine(x, y, x, y+1);
         	//window.addLine(x, y+1, x+1, y+1);
@@ -67,10 +67,10 @@ public class Portaat {
         	//x++;
         	//y--;
     	
-    	piirraPortaat(window,x,y,lkm,"ylos");
-    	x += lkm;
+    	piirraPorras(window,x,y,lkm,"ylos");
+    	x += lkm - 1;
     	y += lkm;
-    	piirraPortaat(window,x,y,lkm,"alas");
+    	piirraPorras(window,x,y,lkm,"alas");
     }
     /**
      * @param args ei käytössä
@@ -87,10 +87,10 @@ public class Portaat {
         porrasAlas(window,3,1);
         
         //Ja lopulta metodi, joka piirtää halutun määrän portaita alkaen tietystä koordinaatista
-        piirraPortaat(window,3,3,7,"ylos");
+        piirraPorras(window,3,3,7,"ylos");
         // eli piirraPortaat(ikkuna johon piirretään, x-koord, y-koord, montako porrasta
         
-        piirraPyramidi(window,1,10,7);
+        piirraPortaat(window,1,10,7);
         
         window.showWindow();
     }
